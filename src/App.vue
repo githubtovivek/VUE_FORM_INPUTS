@@ -93,7 +93,14 @@
                     </select>
                 </div>
             </div>
-            <hr>
+           <br>
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                    <label for="switched">Flip Flof</label><br>
+                    <app-switch-component v-model="switched"></app-switch-component>
+                </div>
+            </div>
+            <br>
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                     <button
@@ -120,7 +127,7 @@
                         </ul>
                         <p>Gender: {{ gender }}</p>
                         <p>Priority: {{ selectedPriority }}</p>
-                        <p>Switched:</p>
+                        <p>Switched: {{ switched }}</p>
                     </div>
                 </div>
             </div>
@@ -129,6 +136,9 @@
 </template>
 
 <script>
+
+import switchComponent from './custom-components/switch.vue';
+
     export default {
         data: function() {
             return {
@@ -141,8 +151,12 @@
                 sendMail: [],
                 gender: 'male',
                 priorities: ['High', 'Low', 'Medium'],
-                selectedPriority: 'Low'
+                selectedPriority: 'Low',
+                switched: true
              }
+        },
+        components: {
+            "app-switch-component": switchComponent
         }
     }
 </script>
